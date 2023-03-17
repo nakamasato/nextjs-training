@@ -1,9 +1,13 @@
 'use strict'
 
+const {
+    BasicTracerProvider,
+    ConsoleSpanExporter,
+    SimpleSpanProcessor,
+} = require("@opentelemetry/tracing");
 const opentelemetry = require('@opentelemetry/sdk-node');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
-const { JaegerExporter } = require('@opentelemetry/exporter-jaeger');
 
 
 const { Resource } = require('@opentelemetry/resources');
@@ -12,15 +16,26 @@ const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventi
 // custom nextjs server
 const { startServer } = require('./server');
 
-const exporterOptions = {
-    endpoint: 'http://localhost:14268/api/traces',
-}
-const traceExporter = new JaegerExporter(exporterOptions);
+const exporter = new OTLPTraceExporter({
+    url: 'http://localhost:4318/v1/traces'
+});
+
+const provider = new BasicTracerProvider({
+    resource: new Resource({
+        [SemanticResourceAttributes.SERVICE_NAME]:
+            "nextjs-block",
+    }),
+});
+// export spans to console (useful for debugging)
+provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+// export spans to opentelemetry collector
+provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
+
 const sdk = new opentelemetry.NodeSDK({
     resource: new Resource({
         [SemanticResourceAttributes.SERVICE_NAME]: 'nextjs-blog'
     }),
-    traceExporter,
+    traceExporter: exporter,
     instrumentations: [getNodeAutoInstrumentations()]
 });
 
