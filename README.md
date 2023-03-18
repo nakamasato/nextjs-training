@@ -14,6 +14,12 @@ yarn start:server
 
 ![](docs/home.png)
 
+## Build
+
+```
+yarn build
+```
+
 ## Development
 
 1. Tutorial
