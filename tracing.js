@@ -17,7 +17,7 @@ const traceExporter = new OTLPTraceExporter({
 
 const sdk = new opentelemetry.NodeSDK({
     resource: new Resource({
-        [SemanticResourceAttributes.SERVICE_NAME]: 'nextjs-blog'
+        [SemanticResourceAttributes.SERVICE_NAME]: 'nextjs-training'
     }),
     traceExporter,
     instrumentations: [getNodeAutoInstrumentations()]
