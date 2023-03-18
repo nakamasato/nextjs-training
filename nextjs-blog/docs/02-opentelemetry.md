@@ -11,8 +11,8 @@
       -p 6832:6832/udp \
       -p 5778:5778 \
       -p 16686:16686 \
-      -p 4317:4317 \
-      -p 4318:4318 \
+      -p 4317:4317 \ # grpc otlp
+      -p 4318:4318 \ # http otlp
       -p 14250:14250 \
       -p 14268:14268 \
       -p 14269:14269 \
@@ -163,9 +163,10 @@
 1. start otel-collector
 
     ```
-    docker run -d --name otel-collector \
+    docker run --rm --name otel-collector \
       --network=otlp \
       -p 4318:4318 \
+      -p 4317:4317 \
       -v $(pwd)/otel-collector-config.docker.yaml:/config.yaml:z \
       otel/opentelemetry-collector-contrib:0.59.0 \
       --config=/config.yaml
@@ -251,7 +252,11 @@
     ![](jaeger-otel-collector.png)
 
 
-Tips:
+## [SpanProcessor](https://opentelemetry.io/docs/instrumentation/js/instrumentation/#picking-the-right-span-processor)
+
+> By default, the Node SDK uses the `BatchSpanProcessor`, and this span processor is also chosen in the Web SDK example. The `BatchSpanProcessor` processes spans in batches before they are exported. This is usually the right processor to use for an application.
+
+> In contrast, the `SimpleSpanProcessor` processes spans as they are created.
 
 1. Install tracing
     ```
@@ -293,6 +298,28 @@ Tips:
     docker rm -f otel-collector
     docker network rm otlp
     ```
+
+## grpc or http
+
+1. grpc: 4317
+    ```js
+    const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-grpc');
+    ...
+    const traceExporter = new OTLPTraceExporter({
+        url: 'http://localhost:4317'
+    });
+    ```
+
+1. http: 4318
+    ```js
+    const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http');
+    const traceExporter = new OTLPTraceExporter({
+        url: 'http://localhost:4318/v1/traces'
+    })
+    ```
+
 Ref:
 1. https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/
 1. https://logz.io/blog/nodejs-javascript-opentelemetry-auto-instrumentation/#jaeger
+1. https://uptrace.dev/opentelemetry/js-tracing.html
+1. https://ross-hagan.com/blog/instrument-nextjs-opentelemetry
