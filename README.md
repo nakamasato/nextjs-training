@@ -8,17 +8,21 @@ npx create-next-app@latest nextjs-training --use-npm --example "https://github.c
 
 ## Run
 
+Development:
 ```
-yarn start:server
+npm run start:server
 ```
-
+Production:
+```
+npm run build
+npm run prod
+```
 ![](docs/home.png)
 
-## Build
 
-```
-yarn build
-```
+## Profiling
+
+
 
 ## Development
 

@@ -29,9 +29,9 @@ Head:
     ```
 1. You can see `First Post` in the browser tab.
     - before:
-        ![](docs/header-before.png)
+        ![](header-before.png)
     - after:
-        ![](docs/header-after.png)
+        ![](header-after.png)
 
 Script:
 1. Use `<Script>` component for more detailed configuration for third-party script loading. e.g. LazyLoading
@@ -92,7 +92,7 @@ Layout:
     npm run dev
     ```
 
-    ![](docs/layout-component.png)
+    ![](layout-component.png)
 
 Global CSS:
 
@@ -151,7 +151,7 @@ Global CSS:
     npm run dev
     ```
 
-    ![](docs/global-css.png)
+    ![](global-css.png)
 
 
 [Polishing Style](https://nextjs.org/learn/basics/assets-metadata-css/polishing-layout):
