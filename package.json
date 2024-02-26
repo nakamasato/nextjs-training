@@ -10,9 +10,9 @@
   "dependencies": {
     "@opentelemetry/auto-instrumentations-node": "^0.36.3",
     "@opentelemetry/exporter-jaeger": "^1.9.1",
-    "@opentelemetry/exporter-trace-otlp-http": "^0.35.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.48.0",
     "@opentelemetry/resources": "^1.9.1",
-    "@opentelemetry/sdk-node": "^0.35.1",
+    "@opentelemetry/sdk-node": "^0.48.0",
     "@opentelemetry/semantic-conventions": "^1.9.1",
     "@opentelemetry/tracing": "^0.24.0",
     "gray-matter": "^4.0.3",
