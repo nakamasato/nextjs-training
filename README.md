@@ -32,3 +32,7 @@ npm run prod
     1. [Pre-rendering and Data Fetching](docs/03-prerendering-and-data-fetching.md): https://nextjs.org/learn/basics/data-fetching
 1. Other
     1. [Open Telemetry](docs/10-opentelemetry.md)
+
+## References
+
+1. [とほほのnextjs入門](https://www.tohoho-web.com/ex/nextjs.html)
