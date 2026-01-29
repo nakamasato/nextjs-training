@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "eslint": "9.39.2",
-    "eslint-config-next": "15.5.10"
+    "eslint-config-next": "15.5.11"
   }
 }
