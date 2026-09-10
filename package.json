@@ -17,8 +17,8 @@
     "@opentelemetry/tracing": "^0.24.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "eslint": "9.39.5",
