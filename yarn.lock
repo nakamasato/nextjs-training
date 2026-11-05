@@ -477,6 +477,13 @@
   dependencies:
     "@opentelemetry/semantic-conventions" "^1.29.0"
 
+"@opentelemetry/core@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/core/-/core-3.1.0.tgz#f1293092765dbe6115bb82139aec40c89d5702f0"
+  integrity sha512-TS/6jqU5gilzjvjGnsTEKVFF/0MMAtBc2psxaX39IGCBYLat83/iHxYBWn+O6WB+pnyB0SwiH46rvTEp/OeYxA==
+  dependencies:
+    "@opentelemetry/semantic-conventions" "^1.29.0"
+
 "@opentelemetry/exporter-jaeger@^2.0.0":
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/@opentelemetry/exporter-jaeger/-/exporter-jaeger-2.12.0.tgz#d70ae5cfef4acd94cd7fcda44e98ab395403dd26"
@@ -1062,6 +1069,14 @@
   integrity sha512-+rSRoOdln6NhXTVcBdHSlZxJDNzwxadeweK2ltZO3tVtfp6aklABc06xclDk6ovRR+EiGgIcSbh/6NgjFhnb3A==
   dependencies:
     "@opentelemetry/core" "2.12.0"
+    "@opentelemetry/semantic-conventions" "^1.29.0"
+
+"@opentelemetry/resources@^3.0.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/resources/-/resources-3.1.0.tgz#31fd578349f5b6427ee05cb0f1ee05c2202d68a4"
+  integrity sha512-51dObapLj5PFRoQ+V4G4pZuQhzgFw/fC4m6F6Qa7rhjkrPyldroR34uOhL1vQqbpR02WdRh0JmsxyNlh2YNNvg==
+  dependencies:
+    "@opentelemetry/core" "3.1.0"
     "@opentelemetry/semantic-conventions" "^1.29.0"
 
 "@opentelemetry/sdk-logs@0.223.0":
